@@ -8,12 +8,12 @@ public class PracticeProblem {
 
 		String[] arrayOfStings = {"hi", "hello", "good morning", "hey", "hello"};
 		String lookForThisString = "hello";
-		int didYouFindTheString = findstring(arrayOfStings, lookForThisString);
+		int didYouFindTheString = findLast(arrayOfStings, lookForThisString);
 		System.out.println(didYouFindTheString);
 
 		char[] arrayOfChars = {'a', 'b', 'a', 'd', 'a'};
 		char lookForThisChar = 'a';
-		int letMeKnowTheIndexOfWhere_a_Is = findChar(arrayOfChars, lookForThisChar);
+		int letMeKnowTheIndexOfWhere_a_Is = findSecond(arrayOfChars, lookForThisChar);
 		System.out.println(letMeKnowTheIndexOfWhere_a_Is);
 	}
 	public static int find(int[] array, int ourNumber) {
@@ -25,16 +25,21 @@ public class PracticeProblem {
     	return -1; 
 	}
 
-	public static int findstring(String[] array, String outString){
-		int index = -1;
-		for (int i = 0; i < array.length; i++){
-			if (array[i].equals(outString)){
-				return i;
-			}
-		}
-		return index;
-	}
-	public static int findChar(char[] array, char ourLetter){
+	public static int findLast(String[] array, String string) {
+    if (array == null || string == null) {
+        return -1;
+    }
+
+    for (int i = array.length - 1; i >= 0; i--) {
+        if (array[i] != null && array[i].equals(string)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+	public static int findSecond(char[] array, char ourLetter){
 		int counter = 0;
 		int index = -1;
 		for (int i = 0; i < array.length; i++){
